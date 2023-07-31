@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+
+:root {
+    --Cyan: hsl(180, 66%, 49%);
+    --Dark_Violet: hsl(257, 27%, 26%);
+    /* Secondary */
+    --Red: hsl(0, 87%, 67%);
+    /* neutral */
+    --Gray: hsl(0, 0%, 75%);
+    --Grayish_Violet: hsl(257, 7%, 63%);
+    --Very_Dark_Blue: hsl(255, 11%, 22%);
+    --Very_Dark_Violet: hsl(260, 8%, 14%);
+}
+
+
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+li {
+    /* color: var(--Grayish_Violet) !important; */
+    font-weight: 700;
+}
+
+.fix-align {
+    display: flex;
+    align-items: flex-end !important;
+    justify-content: flex-start !important;
+}
+.signup{
+    background-color: var(--Cyan) !important;
+    color: white !important;
+    font-weight: 700 !important; 
+    border-radius: 20px !important;
+}
+.login{
+    font-weight: 700 !important; 
+    color: var(--Grayish_Violet) !important;
+}
+body{
+    font-family: 'Poppins', sans-serif !important;
+}
+h1{
+    font-size: 5rem !important;
+    font-weight: 900 !important;
+}
+h3{
+    color: var(--Grayish_Violet) !important;
+    font-size:  1.4rem !important;
+}
+.bg-desktop{
+    background: url("../images/illustration-working.svg");
+    /* background-position:right; */
+    background-repeat: no-repeat;
+    background-size: calc(120% - 2px);
+}
+.button{
+    background-color: var(--Cyan) !important;
+    border: none;
+    padding: 0.5rem 2.7rem !important;
+    font-weight: 700 !important; 
+    border-radius: 20px !important;
+}
+a:not(.nav-link){
+    text-decoration: none !important;
+    color: white !important;
+}
+#form{
+    width: 100% !important;
+    background: url("../images/bg-shorten-desktop.svg");
+    background: var(--Very_Dark_Blue);
+    /* border-radius: 10px; */
+}
+#form input,button{
+    height: 3rem;
+}
+/* input{
+    width: 100% !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width:900px) {
+    main {
+        padding: 3rem 6rem !important;
+    }
+}
