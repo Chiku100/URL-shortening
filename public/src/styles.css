@@ -95,10 +95,7 @@ button.col-md-2:hover,
     border-radius: 10px !important;
     padding:1rem 2rem !important;
 }
-.login {
-    font-weight: 700 !important;
-    color: var(--Grayish_Violet) !important;
-}
+
 
 nav {
     background-color: rgb(240, 238, 238) !important;
@@ -154,7 +151,7 @@ h3 {
     border-radius: 20px !important;
 }
 
-a:not(.nav-link , .find a) {
+a:not(.nav-link , .find a , .login a) {
     text-decoration: none !important;
     color: white !important;
 }
@@ -221,7 +218,11 @@ h4 {
 h2{
     font-size: 2rem !important;
 }
-
+.login a{
+    font-weight: 700 !important;
+    color: var(--Grayish_Violet) !important;
+    text-decoration: none;
+}
 button.col-md-2 {
     /* text-align: center !important; */
 

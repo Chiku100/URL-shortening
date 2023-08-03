@@ -38,14 +38,24 @@
                         </li>
                     </ul>
                     <hr class="line">
-                    <ul class="navbar-nav gap-2  mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <button class="btn login" type="button">Login</button>
-                        </li>
-                        <li class="nav-item ">
-                            <button class="btn signup" type="button">Sign up</button>
-                        </li>
-                    </ul>
+                    <% if(locals.logged_in) { %>
+                        <div class="navbar-nav gap-2  mb-2 mb-lg-0">user</div>
+                    <% } else { %>
+                        <ul class="navbar-nav gap-2  mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <button class="btn login" type="button">
+                                    <a href="/login">Login</a>
+                                </button>
+                            </li>
+                            <li class="nav-item ">
+                                <button class="btn signup" type="button">
+                                    <a href="/signup">sign up</a>
+                                </button>
+                            </li>
+                        </ul>
+
+
+                        <% } %>
                 </div>
             </div>
         </nav>
