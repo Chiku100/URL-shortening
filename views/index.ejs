@@ -39,23 +39,46 @@
                     </ul>
                     <hr class="line">
                     <% if(locals.logged_in) { %>
-                        <div class="navbar-nav gap-2  mb-2 mb-lg-0">user</div>
-                    <% } else { %>
-                        <ul class="navbar-nav gap-2  mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <button class="btn login" type="button">
-                                    <a href="/login">Login</a>
-                                </button>
-                            </li>
-                            <li class="nav-item ">
-                                <button class="btn signup" type="button">
-                                    <a href="/signup">sign up</a>
-                                </button>
-                            </li>
-                        </ul>
+                        <div class="navbar-nav gap-2 row  mb-2 mb-lg-0">
+                            <div class="outline row">
+                                <svg class="user nav-item" xmlns="http://www.w3.org/2000/svg" height="1em"
+                                    viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <path
+                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
+                                </svg>
+                                <div class="nav-item username">
+                                    <li>
+                                        <p>
+                                            <%= amigo %>
+                                        </p>
+                                    </li>
+
+                                </div>
+                            </div>
+
+                            <button class="btn row nav-item login" type="button">
+                                <a href="/loggedout">Logout</a>
+                            </button>
+
+                        </div>
 
 
-                        <% } %>
+                        <% } else { %>
+                            <ul class="navbar-nav gap-2  mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <button class="btn login" type="button">
+                                        <a href="/login">Login</a>
+                                    </button>
+                                </li>
+                                <li class="nav-item ">
+                                    <button class="btn signup" type="button">
+                                        <a href="/signup">sign up</a>
+                                    </button>
+                                </li>
+                            </ul>
+
+
+                            <% } %>
                 </div>
             </div>
         </nav>
@@ -94,12 +117,13 @@
                             <a target="_blank" class="col-12 col-lg-6 col-md-7" href="https://<%= element.short_url %>">
                                 <%= element.short_url %>
                             </a>
-                            <form class="col-12 col-md-5 col-lg-6 dlt-form" action="/delete/<%= element._id  %>   " method="post">
+                            <form class="col-12 col-md-5 col-lg-6 dlt-form" action="/delete/<%= element._id  %>   "
+                                method="post">
                                 <button class="col-12 col-md-6">Delete</button>
                             </form>
                         </div>
                     </div>
-                    
+
                     <% }); %>
             </section>
             <% } %>
@@ -173,7 +197,11 @@
         </div>
         <div class="col-md-2 justify-content-around col-sm-12 row icons row gap-2">
             <div class="col-3 icon-facebook"></div>
-            <div class="col-3 icon-twitter"></div>
+
+            <a class="col-3 icon-twitter" target="_blank" href="https://twitter.com/goodjujutrate">
+                <div class="col-3 "></div>
+            </a>
+
             <div class="col-3 icon-insta"></div>
             <div class="col-3 icon-pinterest">
 

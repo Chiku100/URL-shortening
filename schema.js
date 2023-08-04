@@ -8,9 +8,9 @@ const msgSchema = new mongoose.Schema({
 })
 const userSchema = new mongoose.Schema({
     username: String,
+    email:String,
     password: String
 })
-const secret="ibipbnnibniknhjknol"
 userSchema.plugin(encrypt, {secret: process.env.SECRET ,encryptedFields:["password"]})
 export const user = mongoose.model("user", userSchema)
 export default mongoose.model("messages", msgSchema)

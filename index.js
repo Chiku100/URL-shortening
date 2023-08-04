@@ -18,6 +18,7 @@ app.use(express.static(path.join(__dirname, 'dist')))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('views', path.join(__dirname, 'views'));
 let logged_in = false;
+let amigo = "";
 console.log(process.env.SECRET);
 async function main() {
     // await mongoose.connect('mongodb://localhost:27017/test')
@@ -28,9 +29,10 @@ async function main() {
 }
 main().catch((err) => console.log(err))
 app.get("/", async (req, res) => {
+    
     try {
         const collections = await messages.find()
-        res.render(__dirname + "/views/index.ejs", { collections, logged_in })
+        res.render(__dirname + "/views/index.ejs", { collections, logged_in, amigo })
     } catch (error) {
         console.log(error);
     }
@@ -57,12 +59,7 @@ app.post("/", async (req, res) => {
                 console.log(error);
             }
         }
-        run()
-        const copy = (text) => {
-            console.log("copied value " + result.result.short_link);
-            // navigator.clipboard.writeText(link.short_link);
-            // global.navigator.clipboard.writeText(result.result.short_link);
-        }
+        await run()
         res.redirect("/")
     } catch (e) {
         res.render("index.ejs", {
@@ -87,14 +84,17 @@ app.get("/signup", (req, res) => {
 })
 app.post("/signup", async (req, res) => {
     const email = req.body.email
+    const username = req.body.user
     const pass_word = req.body.password
     // console.log(username);
     const createUser = async () => {
         try {
             const User = new user({
-                username: email, password: pass_word
+                email, password: pass_word, username
             })
             await User.save()
+            logged_in = true;
+            amigo = checkuser.username
             res.render("success.ejs")
         } catch (error) {
             console.log(error);
@@ -108,27 +108,30 @@ app.get("/login", (req, res) => {
     res.render("login.ejs")
 })
 app.post("/login", async (req, res) => {
-    const username = req.body.email
+
+    const email = req.body.email
     const pass_word = req.body.password
-    console.log(username);
-    const checkuser = await user.findOne({ username: username })
-    console.log(checkuser);
+    const checkuser = await user.findOne({ email: email })
     if (checkuser) {
         if (checkuser.password == pass_word) {
-            console.log("success");
             logged_in = true;
-            res.render("success.ejs")
+            amigo = checkuser.username
+            console.log(amigo);
+            res.render("loginauth.ejs")
         }
         else {
-            console.log("failed");
-            res.render("login.ejs")
+            const showErr="wrong password"
+            res.render("login.ejs",{showErr})
         }
     }
     else {
-        res.send("No user found on that email")
-    }
+        res.render(__dirname + "/views/Erroruser.ejs")
 
-    // res.render("signup.ejs")
+    }
+})
+app.get("/loggedout",(req,res)=>{
+    logged_in= !logged_in
+    res.render("loggedout.ejs")
 })
 app.listen(port, () => {
     console.log(`Listening on port ${port}`);

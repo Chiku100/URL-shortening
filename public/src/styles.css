@@ -232,6 +232,28 @@ button.col-md-2 {
     color: white;
 }
 
+.username li{
+    height: 1rem !important;
+    display: flex;
+    justify-content: center !important;
+    
+}   
+.outline{
+    /* padding: 1rem; */
+    /* border: 2px var(--Cyan) dotted; */
+}
+.username p{
+   
+    /* margin-right: 2rem; */
+    font-weight: 900 !important;
+}
+b{
+    color: red !important;
+}
+.user{
+    width: 2rem;
+    height: 2rem;
+}
 .col-md-2:not(button) {
     display: flex;
     flex-direction: column;
@@ -404,7 +426,7 @@ footer {
     .img-icon{
         left: 38% !important;
     }
-    form:not(.dlt-form){
+    form:not(.dlt-form, .logins){
         margin-left: 0.2rem !important;
         background:var(--Very_Dark_Violet) url("../images/bg-shorten-mobile.svg") !important;
         background-repeat: no-repeat;
@@ -460,6 +482,9 @@ footer {
         background: var(--Dark_Violet);
         justify-content: center !important;
         align-items: center !important;
+    }
+    .username p{
+        color: white !important;
     }
     .line{
         display: block;
