@@ -130,7 +130,7 @@ app.post("/login", async (req, res) => {
     }
 })
 app.get("/loggedout",(req,res)=>{
-    logged_in= !logged_in
+    logged_in= false
     res.render("loggedout.ejs")
 })
 // app.listen(port, () => {
