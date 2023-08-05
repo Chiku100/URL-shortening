@@ -93,6 +93,7 @@ app.post("/signup", async (req, res) => {
                 email, password: pass_word, username
             })
             await User.save()
+             const checkuser = await user.findOne({ email: email })
             logged_in = true;
             amigo = checkuser.username
             res.render("success.ejs")
