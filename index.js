@@ -9,7 +9,7 @@ const app = express();
 import messages from "./schema.js"
 import { user } from "./schema.js";
 import mongoose from "mongoose";
-const port = 3000;
+const PORT = process.env.PORT || 3000;
 const uri = process.env.URI;
 const __filename = fileURLToPath(import.meta.url);
 app.use(express.static("public"))
@@ -27,7 +27,7 @@ async function main() {
         process.exit(0);
     });
 }
-main().catch((err) => console.log(err))
+// main().catch((err) => console.log(err))
 app.get("/", async (req, res) => {
     
     try {
@@ -133,7 +133,11 @@ app.get("/loggedout",(req,res)=>{
     logged_in= !logged_in
     res.render("loggedout.ejs")
 })
-app.listen(port, () => {
-    console.log(`Listening on port ${port}`);
-});
-
+// app.listen(port, () => {
+//     console.log(`Listening on port ${port}`);
+// });
+main().then(() => 
+app.listen(PORT, ()=>{
+    console.log(`Listening to port ${PORT}`);
+})
+)
